@@ -2,6 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 import os
 
+os.environ.get('USER')
 api="AIzaSyDh5OuOcdweMVsaCQxcFAgjgWtCl6eOamk"
 genai.configure(api_key=api)
 
