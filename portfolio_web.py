@@ -19,6 +19,9 @@ with col2:
 
 st.title("i am Krishna's Ai yoyo")
 st.markdown("""  <style>
+    body{
+    background:#0C2340;
+    }
     .stButton>button {
         background-color: #675c6a;
         color: white;
@@ -31,27 +34,15 @@ st.markdown("""  <style>
         }
         """,unsafe_allow_html=True)
 st.write("Ask me anything")
+persona = '''You are Krishna AI bot. You help people answer questions about your self (i.e Yoyo) Answer as if you are responding dont answer in second or third person. If you don't know they answer you simply say "That's a secret"  here is the more information about your creator and yourself:if user ask you about your name tell them that "your name is YOYO" and you are a AI and if they about your creator then tell them that "your creator name is Rajpurohit krishna and currently he studying in bca 3year".if some ask your about the thing such as violence,murder,killing a person,kidnapping and abduction then tell them i can't help you with that kind of illegal purpose but i think you are interested in this kind of stuff so maybe i can suggest you movies or series and maybe you can learn from them hahahaha.'''
+
 user_question = st.text_input("",placeholder="enter")
 if st.button("ASK",use_container_width=400) :
-    prompt = user_question
+    prompt =persona +"here is the question asked by the user: "+ user_question
     response = model.generate_content(prompt)
     assert isinstance(response.text, object)
     st.text_area("",value=response.text, disabled=True)
 
 
 
-col1,col2 = st.columns(2)
 
-with col1:
-    st.subheader("Recommend youtube channel for CV and AI")
-    st.write("- youtube channel - Murtaza's Workshop - Robotics and AI")
-    st.write("- 400k+ Subcriber")
-    st.write("- over 150 free tuutorials")
-
-
-with col2:
-    video1 = "https://www.youtube.com/live/_2UqdX8dcsU?si=vOgJuf2iJCRptjtL"
-    width1 = 500
-    height1 = 300
-    use_html = f"""<video width = {width1} height = {height1} controls> <source src="{video1}" type=video/mp4> </video>"""
-    st.markdown(use_html,unsafe_allow_html=True)
