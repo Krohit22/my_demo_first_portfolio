@@ -11,13 +11,13 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 col1,col2 = st.columns(2)
 with col1:
     st.subheader("🕵️Hi")
-    st.title("I am krishna rajpurohit")
+    st.title("i am Krishna's Ai yoyo")
 
 
 with col2:
     st.image("image/p1.jpeg")
 
-st.title("i am Krishna's Ai yoyo")
+
 st.markdown("""  <style>
     body{
     background:#0C2340;
@@ -25,6 +25,7 @@ st.markdown("""  <style>
     .stButton>button {
         background-color: #675c6a;
         color: white;
+        border-radius:30px;
         border:none;
         }
         
@@ -41,7 +42,7 @@ if st.button("ASK",use_container_width=400) :
     prompt =persona +"here is the question asked by the user: "+ user_question
     response = model.generate_content(prompt)
     assert isinstance(response.text, object)
-    st.text_area("",value=response.text, disabled=True)
+    st.text_area("",value=response.text, disabled=True,height=400)
 
 
 
